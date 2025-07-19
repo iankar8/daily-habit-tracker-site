@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 → 7 FLOWCARD - 12 Hour Format</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Current Activity Hero Section -->
+        <section class="current-activity-hero" id="current-activity">
+            <div class="hero-content">
+                <div class="current-time" id="current-time"></div>
+                <div class="current-activity-card">
+                    <div class="activity-status">CURRENT ACTIVITY</div>
+                    <div class="activity-name" id="current-activity-name">Loading...</div>
+                    <div class="activity-time" id="current-activity-time"></div>
+                    <div class="activity-details" id="current-activity-details"></div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span class="progress-text" id="progress-text">0% Complete</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">⏱️ "7 → 7" FLOWCARD</h1>
+                <p class="workout-subtitle">Workout = 1.5 h (30 min travel + 60 min work-out)</p>
+                <div class="date-info">
+                    <span id="current-date"></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Tabbed Interface -->
+        <nav class="tab-nav">
+            <button class="tab-button active" data-tab="today">Today</button>
+            <button class="tab-button" data-tab="workouts">Workouts</button>
+            <button class="tab-button" data-tab="nutrition">Nutrition & Recovery</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="app-main">
+            <!-- Today Tab -->
+            <section class="tab-content active" id="today-tab">
+                <div class="schedule-section">
+                    <h2>Daily Schedule</h2>
+                    <div class="schedule-grid" id="schedule-grid">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Workouts Tab -->
+            <section class="tab-content" id="workouts-tab">
+                <div class="today-workout">
+                    <h3>Today's Workout</h3>
+                    <div class="workout-card" id="today-workout">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="workout-reference">
+                    <h2>Weekly Workout Reference</h2>
+                    <div class="workout-grid" id="workout-grid">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nutrition & Recovery Tab -->
+            <section class="tab-content" id="nutrition-tab">
+                <div class="macro-section">
+                    <h2>Nutrition Targets</h2>
+                    <div class="macro-grid">
+                        <div class="macro-card">
+                            <h4>Daily Targets</h4>
+                            <div class="macro-targets">
+                                <div class="target-item">
+                                    <span class="target-label">Calories:</span>
+                                    <span class="target-value">2,100</span>
+                                </div>
+                                <div class="target-item">
+                                    <span class="target-label">Protein:</span>
+                                    <span class="target-value">160g</span>
+                                </div>
+                                <div class="target-item">
+                                    <span class="target-label">Hydration:</span>
+                                    <span class="target-value">3,000 mL</span>
+                                </div>
+                                <div class="target-item">
+                                    <span class="target-label">Caffeine Cutoff:</span>
+                                    <span class="target-value">2:30 PM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="macro-card">
+                            <h4>Protein Sources</h4>
+                            <div class="protein-sources">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="breakfast-smoothie" data-macro="protein">
+                                    <span>Breakfast Smoothie (40g)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="territory-lunch" data-macro="protein">
+                                    <span>Territory Lunch (40g)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="shef-dinner" data-macro="protein">
+                                    <span>Shef Dinner (50g)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="whey-protein" data-macro="protein">
+                                    <span>Whey (if needed) (30g)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Recovery Anchors</h2>
+                    <div class="recovery-grid">
+                        <div class="macro-card">
+                            <h4>Sleep & Recovery</h4>
+                            <div class="recovery-items">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="sleep-window" data-macro="recovery">
+                                    <span>9-hour sleep window (10:00 PM - 7:00 AM)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="dim-lights" data-macro="recovery">
+                                    <span>Lights < 300 lux by 9:00 PM</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="nsdr" data-macro="recovery">
+                                    <span>10-min NSDR post-lunch</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="meditation" data-macro="recovery">
+                                    <span>Morning meditation/prayer</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="supplements" data-macro="recovery">
+                                    <span>Evening supplements (Mg + glycine)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Controls -->
+            <section class="controls">
+                <button class="btn btn--secondary" id="reset-button">Reset All</button>
+                <div class="screenshot-note">
+                    <p><strong>Screenshot this schedule</strong>—12-hour format makes it easy to follow your 7 AM wake / 10 PM bed routine while maintaining 9-hour sleep and consistent training.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
